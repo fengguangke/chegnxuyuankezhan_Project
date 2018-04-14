@@ -13,6 +13,7 @@ class IndexPage(BasePage):
     ID_BX = (By.XPATH,"//a[@href='/BX/BX/Index/BX']")
     ID_PKGL = (By.XPATH,"//a[@href='/PK/PK/Index/PKGL']")
     ID_Evaluation = (By.XPATH,"//a[@href='/Evaluation/Evaluation/index/Evaluation']")
+    ID_KQManage = (By.XPATH,"//a[@href='/KQ/KQ/index/KQ']")
 
     #public function
     def clickBXManage(self):
@@ -28,6 +29,9 @@ class IndexPage(BasePage):
         sleep(3)
         self._click_element(self.ID_Evaluation)
 
+    def clickKQManage(self):
+        sleep(3)
+        self._click_element(self.ID_KQManage)
 
     
 

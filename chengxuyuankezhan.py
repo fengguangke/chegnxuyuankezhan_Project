@@ -3,7 +3,7 @@
 from selenium import webdriver
 from time import sleep
 import unittest
-from PageObject import LoginPage,IndexPage,BXManagePage,PKManagePage,EvaluationPage
+from PageObject import LoginPage,IndexPage,BXManagePage,PKManagePage,EvaluationPage,KQManagePage
 
 class BXManegeTest(unittest.TestCase):
 
@@ -137,6 +137,21 @@ class BXManegeTest(unittest.TestCase):
         addIndicatePage = evaluationPage.AddIndicatePage(self.driver)
         addIndicatePage.deleteIndicate('IndicateName-test')
 
+        sleep(5)
+
+    def test_08_addWorkTime(self):
+
+        loginPage = LoginPage(self.driver, url=self.url)
+        indexPage = IndexPage(self.driver)
+
+        loginPage.login('xfadmin', '111111')
+        indexPage.clickKQManage()
+
+        kqManagePage = KQManagePage(self.driver)
+        kqManagePage.clickKQTimeManage()
+        kqManagePage.clickNewWorkTime()
+
+        kqManagePage.selectWorkTime(startTime='09:30',endTime='18:00')
         sleep(5)
 
     def tearDown(self):
